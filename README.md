@@ -61,5 +61,3 @@ cd electron-calculator
 
 專案連結: [https://github.com/你的使用者名稱/electron-calculator](https://github.com/你的使用者名稱/electron-calculator)
 
-這個目前是合併的
-你重複寫給我
