@@ -59,5 +59,5 @@ cd electron-calculator
 
 你的名稱 – [@你的Twitter或社交媒體](Link to your social media) – 你的 Email
 
-專案連結: [https://github.com/你的使用者名稱/electron-calculator](https://github.com/你的使用者名稱/electron-calculator)
+專案連結: [https://github.com/你的使用者名稱/](https://github.com/你的使用者名稱/)
 
