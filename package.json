@@ -1,0 +1,30 @@
+{
+  "name": "electron-calculator",
+  "version": "1.0.0",
+  "description": "A minimal calculator built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.yourcompany.electroncalculator",
+    "productName": "ElectronCalculator",
+    "directories": {
+      "output": "exe"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

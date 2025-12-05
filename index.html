@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>極簡計算機</title>
+    <style>
+        /* 簡單的 CSS 樣式讓計算機看起來像樣 */
+        body { font-family: sans-serif; margin: 0; background-color: #f4f4f4; }
+        #calculator { width: 300px; margin: 50px auto; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        #display { background-color: #222; color: white; font-size: 2em; text-align: right; padding: 20px; min-height: 1.5em; overflow: hidden; }
+        .buttons { display: grid; grid-template-columns: repeat(4, 1fr); }
+        .btn { padding: 20px; font-size: 1.2em; border: 1px solid #ccc; cursor: pointer; background-color: #eee; text-align: center; }
+        .btn:active { background-color: #ddd; }
+        .operator { background-color: orange; color: white; }
+    </style>
+</head>
+<body>
+
+<div id="calculator">
+    <div id="display">0</div>
+    <div class="buttons">
+        <div class="btn operator" onclick="clearDisplay()">C</div>
+        <div class="btn operator" onclick="appendOperator('/')">/</div>
+        <div class="btn operator" onclick="appendOperator('*')">*</div>
+        <div class="btn operator" onclick="calculate()">=</div>
+
+        <div class="btn" onclick="appendNumber(7)">7</div>
+        <div class="btn" onclick="appendNumber(8)">8</div>
+        <div class="btn" onclick="appendNumber(9)">9</div>
+        <div class="btn operator" onclick="appendOperator('+')">+</div>
+
+        <div class="btn" onclick="appendNumber(4)">4</div>
+        <div class="btn" onclick="appendNumber(5)">5</div>
+        <div class="btn" onclick="appendNumber(6)">6</div>
+        <div class="btn operator" onclick="appendOperator('-')">-</div>
+
+        <div class="btn" onclick="appendNumber(1)">1</div>
+        <div class="btn" onclick="appendNumber(2)">2</div>
+        <div class="btn" onclick="appendNumber(3)">3</div>
+        <div class="btn" onclick="appendNumber(0)">0</div>
+        
+        <div class="btn" onclick="appendNumber('.')">.</div>
+        <div class="btn" style="grid-column: span 2;"></div> 
+    </div>
+</div>
+
+<script>
+    // index.html - 渲染程序的計算機邏輯
+
+    let currentExpression = '0';
+    let isNewNumber = true;
+    const displayElement = document.getElementById('display');
+
+    function updateDisplay() {
+        displayElement.innerText = currentExpression;
+    }
+
+    function appendNumber(number) {
+        if (currentExpression === '0' || isNewNumber) {
+            currentExpression = number.toString();
+            isNewNumber = false;
+        } else {
+            currentExpression += number.toString();
+        }
+        updateDisplay();
+    }
+
+    function appendOperator(operator) {
+        // 簡單邏輯：檢查最後一個字元是否為運算符，如果是則替換，否則添加
+        const lastChar = currentExpression.slice(-1);
+        if ('+-*/'.includes(lastChar)) {
+            currentExpression = currentExpression.slice(0, -1) + operator;
+        } else {
+            currentExpression += operator;
+        }
+        isNewNumber = false;
+        updateDisplay();
+    }
+
+    function calculate() {
+        try {
+            // 使用 eval 進行計算 (注意：在真實應用中 eval 有安全風險，但在學習範例中可用)
+            const result = eval(currentExpression); 
+            currentExpression = result.toString();
+        } catch (error) {
+            currentExpression = 'Error';
+        }
+        isNewNumber = true; // 計算後，下次按數字會重置顯示
+        updateDisplay();
+    }
+
+    function clearDisplay() {
+        currentExpression = '0';
+        isNewNumber = true;
+        updateDisplay();
+    }
+
+    updateDisplay(); // 初始顯示
+</script>
+
+</body>
+</html>
