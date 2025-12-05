@@ -1,7 +1,5 @@
 # 🧮 Electron 極簡計算機 (Electron Calculator)
 
-[attachment_0](attachment)
-
 這是一個使用 **Electron.js**、HTML、CSS 和 JavaScript 構建的極簡桌面計算機應用程式。它旨在作為學習和演示如何將現代 Web 技術包裝成跨平台桌面應用程式的最小範例。
 
 ---
