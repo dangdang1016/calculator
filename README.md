@@ -29,8 +29,8 @@ git clone [https://github.com/你的使用者名稱/electron-calculator.git](htt
 
 # 進入專案資料夾
 cd electron-calculator
-
-## 🔗 授權與義務 (License and Obligations)
+```
+### 🔗 授權與義務 (License and Obligations)
 
 本專案採用 **GNU General Public License v3.0 (GPL v3.0)** 授權條款。
 
